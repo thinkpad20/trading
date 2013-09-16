@@ -64,5 +64,11 @@ def get_gaps(data):
             print "%s's percent change = %f" % (d["symbol"], percent)
     return gaps
 
-# print get_all_data()
-get_all_data(csv=True)
+# this will run in a loop from the opening of the market until the
+# close, grabbing the data every 5 seconds.
+start_time = datetime.strptime('08:30:00 09/16/2013', '%H:%M:%S %m/%d/%Y')
+stop_time = datetime.strptime('16:00:00 09/16/2013', '%H:%M:%S %m/%d/%Y')
+
+while 0 <= datetime.now().weekday() <= 4 and start_time <= datetime.now() <= stop_time:
+    get_all_data(csv=True)
+    time.sleep(2)
