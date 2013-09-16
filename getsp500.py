@@ -53,8 +53,9 @@ syms = ['mmm', 'abt', 'abbv', 'anf', 'ace', 'acn', 'act', 'adbe', 'adt',
         'wu', 'wy', 'whr', 'wfm', 'wmb', 'win', 'wec', 'wpx', 'wyn', 'wynn', 
         'xel', 'xrx', 'xlnx', 'xl', 'xyl', 'yhoo', 'yum', 'zmh', 'zion', 'zts']
 
-def get_sp500_syms():
-   return syms
+def get_sp500_syms(refresh = False):
+   if not refresh:
+      return syms
    try:
       url = "http://en.wikipedia.org/wiki/List_of_S%26P_500_companies"
       # get html from wikipedia
