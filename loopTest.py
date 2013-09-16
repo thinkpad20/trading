@@ -13,7 +13,6 @@ now = datetime.now()
 #         # then we're at 
 
 while 0 <= now.weekday() <= 4 and start_time <= now <= stop_time:
-    break
     print "hey"
     time.sleep(1)
 

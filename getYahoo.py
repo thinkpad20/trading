@@ -2,6 +2,7 @@ import requests as r
 import re
 from getsp500 import get_sp500_syms
 from datetime import datetime
+import time
 
 def get_data(symbols, csv = False):
     data = []
@@ -25,7 +26,7 @@ def get_data(symbols, csv = False):
             time = datetime.now()
             if csv:
                 # Hour, Minute, Second, Month, Day, Year, Bid, Ask, Latest
-                f = open("data/%s.csv" % symbol, "w+")
+                f = open("data/%s.csv" % symbol, "a")
                 f.write("%s,%s,%s,%s,%s,%s,%s,%s,%s\r\n" % \
                     (time.hour, time.minute, time.second, time.month, \
                      time.day, time.year, bid, ask, latest))
